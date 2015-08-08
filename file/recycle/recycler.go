@@ -1,9 +1,15 @@
 package recycle
 
 import (
+	"encoding/binary"
 	"errors"
 	"io"
+	"os"
+	"strings"
 	"time"
+	"unicode/utf16"
+
+	"github.com/jtsylve/DFRWS2015/timestamp"
 )
 
 // ErrInvalid is returned when the data passed to a Decode function
@@ -21,8 +27,36 @@ type Metadata struct {
 // returns associated Metadata for the deleted file. ErrInvalid
 // is returned if r is not a valid $I file.
 func DecodeI(r io.Reader) (Metadata, error) {
-	// TODO: Implement me!
-	return Metadata, nil
+	if r == nil {
+		return Metadata{}, os.ErrInvalid
+	}
+
+	// Parse structure from reader
+	var i struct {
+		Signature   uint64
+		Size        int64
+		DeletedTime timestamp.FileTime
+		Name        [260]uint16
+	}
+
+	err := binary.Read(r, binary.LittleEndian, &i)
+	if err != nil {
+		return Metadata{}, err
+	}
+
+	// Do some basic validation
+	if i.Signature != 1 || i.Size < 0 {
+		return Metadata{}, ErrInvalid
+	}
+
+	// We're good.  Create and return the Metadata.
+	md := Metadata{
+		Name:    parseUTF16String(i.Name[:]),
+		Size:    i.Size,
+		Deleted: i.DeletedTime.Time(),
+	}
+
+	return md, nil
 }
 
 // DecodeINFO2 takes a Windows INFO2 Recycler file as r and
@@ -31,4 +65,14 @@ func DecodeI(r io.Reader) (Metadata, error) {
 func DecodeINFO2(r io.Reader) ([]Metadata, error) {
 	// TODO: Implement me!
 	return nil, nil
+}
+
+// parseUTF16String parses and returns a UTF-16 NULL-Terminated
+// string from b.
+func parseUTF16String(b []uint16) string {
+	s := string(utf16.Decode(b))
+
+	// The following will only return the portion of the string
+	// that occurs before the first NULL byte.
+	return strings.SplitN(s, "\x00", 2)[0]
 }

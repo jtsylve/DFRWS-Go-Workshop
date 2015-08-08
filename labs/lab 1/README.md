@@ -13,6 +13,10 @@ In Go, a `time.Time` represents an instant in time with nanosecond precision.
 
 In this lab you will create a new package called `timestamp`, which contains the following defined `FileTime` type.  You must implement all methods as defined by the documentation below.
 
+NOTE: For the purpose of this lab, we only care about second precision (don't worry about nanoseconds during conversion)
+
+You can test your implementation by running `go test` while in the directory of your `timestamp` package.
+
 #### type FileTime
 
 ```go

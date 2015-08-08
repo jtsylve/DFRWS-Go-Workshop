@@ -24,11 +24,3 @@ func DecodeI(r io.Reader) (Metadata, error) {
 	// TODO: Implement me!
 	return Metadata, nil
 }
-
-// DecodeINFO2 takes a Windows INFO2 Recycler file as r and
-// returns associated Metadata each deleted file record.
-// ErrInvalid is returned if r is not a valid INFO2 file.
-func DecodeINFO2(r io.Reader) ([]Metadata, error) {
-	// TODO: Implement me!
-	return nil, nil
-}

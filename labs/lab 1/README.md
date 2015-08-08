@@ -30,6 +30,13 @@ func (t FileTime) Time() time.Time
 ```
 Time returns t as a standard time.Time
 
+#### func  ToFileTime
+
+```go
+func ToFileTime(t time.Time) FileTime
+```
+ToFileTime returns t as a FileTime
+
 ## References
 
 * [File Times (Windows) - MSDN - Microsoft](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724290(v=vs.85).aspx)

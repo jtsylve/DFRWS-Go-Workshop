@@ -12,3 +12,9 @@ func (t FileTime) Time() time.Time {
 	// TODO: Implement me!
 	return time.Time{}
 }
+
+// ToFileTime returns t as a FileTime
+func ToFileTime(t time.Time) FileTime {
+	// TODO: Implement me!
+	return FileTime(0)
+}

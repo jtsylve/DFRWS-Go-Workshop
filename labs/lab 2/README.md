@@ -74,5 +74,7 @@ INFO2 file.
 
 ## References
 
+* [Windows - Forensics Wiki](http://forensicswiki.org/wiki/Windows#RECYCLER)
 * [Forensic Analysis of Microsoft Windows Recycle Bin Records](http://mandarino70.it/Documents/Recycler_Bin_Record_Reconstruction.pdf)
 * [The Forensic Analysis of the Microsoft Windows Vista Recycle Bin](http://www.forensicfocus.com/downloads/forensic-analysis-vista-recycle-bin.pdf)
+* [binary - The Go Programming Language](https://golang.org/pkg/encoding/binary/#Read)

@@ -11,7 +11,7 @@ In Windows, a `FILETIME` is a 64-bit value that represents the number of 100-nan
 
 In Go, a `time.Time` represents an instant in time with nanosecond precision.
 
-In this lab you will create a new package called `time`, which contains the following defined `FileTime` type.  You must implement all method as defined by the documentation below.
+In this lab you will create a new package called `timestamp`, which contains the following defined `FileTime` type.  You must implement all methods as defined by the documentation below.
 
 #### type FileTime
 

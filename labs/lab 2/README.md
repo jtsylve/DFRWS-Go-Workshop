@@ -2,14 +2,14 @@
 
 ## Table of Contents
 
-* [Description](#desc)
-* [References](#ref)
+* [Description](#description)
+* [References](#references)
 
-## Description <a name="desc"/>
+## Description 
 
 The Recycle Bin contains "Recycled" files. Moving files and directories to the Recycle Bin is also referred to as soft deletion, since the files are not removed from the file system.
 
-###### RECYCLER ######
+###### RECYCLER
 The Recycler format is used by Windows 2000, XP.
 
 Per user Recycle Bin folder in the form:
@@ -20,7 +20,7 @@ C:\Recycler\%SID%\
 Which contains:
 * INFO2 file; "Recycled" files metadata
 
-###### $RECYCLE.BIN ######
+###### $RECYCLE.BIN
 The $Recycle.Bin is used as of Windows Vista.
 
 Per user Recycle Bin folder in the form:
@@ -72,7 +72,7 @@ DecodeINFO2 takes a Windows INFO2 Recycler file as r and returns associated
 Metadata each deleted file record. ErrInvalid is returned if r is not a valid
 INFO2 file.
 
-## References <a name="ref"/>
+## References
 
 * [Forensic Analysis of Microsoft Windows Recycle Bin Records](http://mandarino70.it/Documents/Recycler_Bin_Record_Reconstruction.pdf)
 * [The Forensic Analysis of the Microsoft Windows Vista Recycle Bin](http://www.forensicfocus.com/downloads/forensic-analysis-vista-recycle-bin.pdf)

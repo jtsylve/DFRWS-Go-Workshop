@@ -15,6 +15,7 @@ const (
 // Time returns t as a standard time.Time
 func (t FileTime) Time() time.Time {
 	sec := (int64(t) / (nsPerSec)) - secToEpoch
+
 	return time.Unix(sec, 0)
 }
 

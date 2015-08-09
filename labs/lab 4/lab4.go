@@ -77,6 +77,11 @@ func processZip(filename string) {
 }
 
 func main() {
+	// Since we're using multi-processing we need to make sure that go
+	// will use more than one processor.  Starting in Go 1.5, this is
+	// set to runtime.NumCPU() by default.
+	runtime.GOMAXPROCS(runtime.NumCPU())
+
 	// Ensure we have exactly one command line argument
 	// in addition to our file name
 	if len(os.Args) != 2 {

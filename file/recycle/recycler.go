@@ -22,5 +22,5 @@ type Metadata struct {
 // is returned if r is not a valid $I file.
 func DecodeI(r io.Reader) (Metadata, error) {
 	// TODO: Implement me!
-	return Metadata, nil
+	return Metadata{}, nil
 }

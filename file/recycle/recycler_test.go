@@ -83,9 +83,9 @@ func TestDecodeI(t *testing.T) {
 	if !reflect.DeepEqual(md, sampleMD) {
 		t.Errorf(
 			`Metadata does not match.
-			Returned: %v.
+			Returned: %+v.
 			Returned HEX (%x).
-			Expected: %v.
+			Expected: %+v.
 			Expected HEX (%x)`,
 			md,
 			md,

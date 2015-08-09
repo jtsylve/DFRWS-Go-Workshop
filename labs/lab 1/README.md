@@ -17,6 +17,10 @@ NOTE: For the purpose of this lab, we only care about second precision (don't wo
 
 You can test your implementation by running `go test` while in the directory of your `timestamp` package.
 
+###### Hint
+
+`11644473600` is the number of seconds between 12:00 AM Jan 1, 1601 and Unix Epoch Time.
+
 #### type FileTime
 
 ```go

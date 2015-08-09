@@ -23,6 +23,8 @@ Which contains:
 
 In this lab you will create a new package called `file/recycle`, which contains the following definitions.  You must implement all variables, types, and methods as defined by the documentation below.
 
+You can test your implementation by running `go test` while in the directory of your `file/recycle` package.
+
 #### Variables
 
 ```go

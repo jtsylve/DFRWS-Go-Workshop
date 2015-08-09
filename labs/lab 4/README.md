@@ -13,7 +13,7 @@ In this lab you will modify the program created in [Lab 3](../lab%203) to add th
 * For all valid recycle bin files, Metadata should be displayed, or for invalid files, an appropriate error message.
 * Files should be processed in parallel and results printed as they are available.
 
-NOTE: You can find some sample recycle bin files [here](../sample.zip).
+NOTE: You can find some sample recycle bin files [here](../samples.zip).
 
 ## References
 

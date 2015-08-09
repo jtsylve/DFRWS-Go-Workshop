@@ -13,6 +13,8 @@ In this lab you will create a program that meets the following requirements:
 * If the file is an $I type Recycle Bin file the file should be processed and it's associated metadata printed.
 * If the file is not a valid Recycle Bin file an appropriate error message should be displayed.
 
+NOTE: You can find some sample recycle bin files [here](../samples.zip).
+
 ## References
 
 * [os - The Go Programming Language](https://golang.org/pkg/os/#File)

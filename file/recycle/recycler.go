@@ -9,7 +9,7 @@ import (
 	"time"
 	"unicode/utf16"
 
-	"github.com/jtsylve/DFRWS2015/timestamp"
+	"github.com/jtsylve/DFRWS-Go-Workshop/timestamp"
 )
 
 // ErrInvalid is returned when the data passed to a Decode function
@@ -23,6 +23,15 @@ type Metadata struct {
 	Deleted time.Time // The Date And Time The File Was Deleted
 }
 
+// recycler represents the on-disk structure of a Windows Vista+
+// recycle bin file.
+type recycler struct {
+	Signature   uint64
+	Size        int64
+	DeletedTime timestamp.FileTime
+	Name        [260]uint16
+}
+
 // DecodeI takes a Windows Vista+ $RECYCLE.BIN $I file as r and
 // returns associated Metadata for the deleted file. ErrInvalid
 // is returned if r is not a valid $I file.
@@ -32,28 +41,23 @@ func DecodeI(r io.Reader) (Metadata, error) {
 	}
 
 	// Parse structure from reader
-	var i struct {
-		Signature   uint64
-		Size        int64
-		DeletedTime timestamp.FileTime
-		Name        [260]uint16
-	}
+	var rec recycler
 
-	err := binary.Read(r, binary.LittleEndian, &i)
+	err := binary.Read(r, binary.LittleEndian, &rec)
 	if err != nil {
 		return Metadata{}, err
 	}
 
 	// Do some basic validation
-	if i.Signature != 1 || i.Size < 0 {
+	if rec.Signature != 1 || rec.Size < 0 {
 		return Metadata{}, ErrInvalid
 	}
 
 	// We're good.  Create and return the Metadata.
 	md := Metadata{
-		Name:    parseUTF16String(i.Name[:]),
-		Size:    i.Size,
-		Deleted: i.DeletedTime.Time(),
+		Name:    parseUTF16String(rec.Name[:]),
+		Size:    rec.Size,
+		Deleted: rec.DeletedTime.Time(),
 	}
 
 	return md, nil

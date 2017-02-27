@@ -6,4 +6,4 @@ The Workshop was presented by
 * Vico Marziale III, Ph.D. - [@vicodark](https://github.com/vicodark)
 * Joe T. Sylve, M.S. - [@jtsylve](https://github.com/jtsylve)
 
-The slides for that workshop are also available [here](https://github.com/jtsylve/slides/tree/master/2015/DFRWS/Building%20Forensics%20Tools%20in%20Go).
+The slides for that workshop are also available [here](https://github.com/jtsylve/slides/tree/master/2016/DFRWS).

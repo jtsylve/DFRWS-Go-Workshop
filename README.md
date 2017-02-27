@@ -1,5 +1,5 @@
 # DFRWS Workshop - Building Digital Forensic Tools in Go
-This repository contains the source code and labs associated with our [DFRWS 2015](http://www.dfrws.org/2015/) workshop on building digital forensic tools in Go.
+This repository contains the source code and labs associated with our [DFRWS 2016](http://www.dfrws.org/2016) workshop on building digital forensic tools in Go.
 
 The Workshop was presented by 
 
